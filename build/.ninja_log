@@ -1,0 +1,11 @@
+# ninja log v6
+44	1026	7730612840000000	CMakeFiles/main.dir/src/functions/elements/elements.c.obj	b6b08b30287a74bb
+65	1021	7730612840000000	CMakeFiles/main.dir/src/functions/ui/ui.c.obj	f1f5f64ac184af3d
+71	1035	7730612840000000	CMakeFiles/main.dir/src/main.c.obj	87007de753490274
+40	1010	7730612840000000	CMakeFiles/main.dir/src/functions/debug/debug.c.obj	76a7bc5c3e0a034f
+35	998	7730612822200000	CMakeFiles/main.dir/src/functions/character/character.c.obj	c57f3faf331dacae
+48	986	7730612840000000	CMakeFiles/main.dir/src/functions/floor/floor.c.obj	8f811040f4d72de
+60	1058	7730612840000000	CMakeFiles/main.dir/src/functions/map/map_noise.c.obj	925581583c808be3
+53	1032	7730612840000000	CMakeFiles/main.dir/src/functions/map/map.c.obj	4c7af13a67726be3
+1059	1259	7730612840000000	main.exe	1b66cabc9c44269
+32	795	7729978006900000	CMakeFiles/main.dir/src/functions/Elements/elements.c.obj	241d619a8e66255b

@@ -1,0 +1,50 @@
+[
+{
+  "directory": "E:/DEV/Self/Mirage/build",
+  "command": "C:\\msys64\\mingw64\\bin\\cc.exe -IE:/DEV/Self/Mirage/src/functions/character -IE:/DEV/Self/Mirage/src/functions/debug -IE:/DEV/Self/Mirage/src/functions/elements -IE:/DEV/Self/Mirage/src/functions/floor -IE:/DEV/Self/Mirage/src/functions/map -IE:/DEV/Self/Mirage/src/functions/ui -IE:/DEV/Self/Mirage/src/include -isystem C:/msys64/mingw64/include/SDL2 -std=gnu11 -o CMakeFiles\\main.dir\\src\\functions\\character\\character.c.obj -c E:\\DEV\\Self\\Mirage\\src\\functions\\character\\character.c",
+  "file": "E:\\DEV\\Self\\Mirage\\src\\functions\\character\\character.c",
+  "output": "CMakeFiles\\main.dir\\src\\functions\\character\\character.c.obj"
+},
+{
+  "directory": "E:/DEV/Self/Mirage/build",
+  "command": "C:\\msys64\\mingw64\\bin\\cc.exe -IE:/DEV/Self/Mirage/src/functions/character -IE:/DEV/Self/Mirage/src/functions/debug -IE:/DEV/Self/Mirage/src/functions/elements -IE:/DEV/Self/Mirage/src/functions/floor -IE:/DEV/Self/Mirage/src/functions/map -IE:/DEV/Self/Mirage/src/functions/ui -IE:/DEV/Self/Mirage/src/include -isystem C:/msys64/mingw64/include/SDL2 -std=gnu11 -o CMakeFiles\\main.dir\\src\\functions\\debug\\debug.c.obj -c E:\\DEV\\Self\\Mirage\\src\\functions\\debug\\debug.c",
+  "file": "E:\\DEV\\Self\\Mirage\\src\\functions\\debug\\debug.c",
+  "output": "CMakeFiles\\main.dir\\src\\functions\\debug\\debug.c.obj"
+},
+{
+  "directory": "E:/DEV/Self/Mirage/build",
+  "command": "C:\\msys64\\mingw64\\bin\\cc.exe -IE:/DEV/Self/Mirage/src/functions/character -IE:/DEV/Self/Mirage/src/functions/debug -IE:/DEV/Self/Mirage/src/functions/elements -IE:/DEV/Self/Mirage/src/functions/floor -IE:/DEV/Self/Mirage/src/functions/map -IE:/DEV/Self/Mirage/src/functions/ui -IE:/DEV/Self/Mirage/src/include -isystem C:/msys64/mingw64/include/SDL2 -std=gnu11 -o CMakeFiles\\main.dir\\src\\functions\\elements\\elements.c.obj -c E:\\DEV\\Self\\Mirage\\src\\functions\\elements\\elements.c",
+  "file": "E:\\DEV\\Self\\Mirage\\src\\functions\\elements\\elements.c",
+  "output": "CMakeFiles\\main.dir\\src\\functions\\elements\\elements.c.obj"
+},
+{
+  "directory": "E:/DEV/Self/Mirage/build",
+  "command": "C:\\msys64\\mingw64\\bin\\cc.exe -IE:/DEV/Self/Mirage/src/functions/character -IE:/DEV/Self/Mirage/src/functions/debug -IE:/DEV/Self/Mirage/src/functions/elements -IE:/DEV/Self/Mirage/src/functions/floor -IE:/DEV/Self/Mirage/src/functions/map -IE:/DEV/Self/Mirage/src/functions/ui -IE:/DEV/Self/Mirage/src/include -isystem C:/msys64/mingw64/include/SDL2 -std=gnu11 -o CMakeFiles\\main.dir\\src\\functions\\floor\\floor.c.obj -c E:\\DEV\\Self\\Mirage\\src\\functions\\floor\\floor.c",
+  "file": "E:\\DEV\\Self\\Mirage\\src\\functions\\floor\\floor.c",
+  "output": "CMakeFiles\\main.dir\\src\\functions\\floor\\floor.c.obj"
+},
+{
+  "directory": "E:/DEV/Self/Mirage/build",
+  "command": "C:\\msys64\\mingw64\\bin\\cc.exe -IE:/DEV/Self/Mirage/src/functions/character -IE:/DEV/Self/Mirage/src/functions/debug -IE:/DEV/Self/Mirage/src/functions/elements -IE:/DEV/Self/Mirage/src/functions/floor -IE:/DEV/Self/Mirage/src/functions/map -IE:/DEV/Self/Mirage/src/functions/ui -IE:/DEV/Self/Mirage/src/include -isystem C:/msys64/mingw64/include/SDL2 -std=gnu11 -o CMakeFiles\\main.dir\\src\\functions\\map\\map.c.obj -c E:\\DEV\\Self\\Mirage\\src\\functions\\map\\map.c",
+  "file": "E:\\DEV\\Self\\Mirage\\src\\functions\\map\\map.c",
+  "output": "CMakeFiles\\main.dir\\src\\functions\\map\\map.c.obj"
+},
+{
+  "directory": "E:/DEV/Self/Mirage/build",
+  "command": "C:\\msys64\\mingw64\\bin\\cc.exe -IE:/DEV/Self/Mirage/src/functions/character -IE:/DEV/Self/Mirage/src/functions/debug -IE:/DEV/Self/Mirage/src/functions/elements -IE:/DEV/Self/Mirage/src/functions/floor -IE:/DEV/Self/Mirage/src/functions/map -IE:/DEV/Self/Mirage/src/functions/ui -IE:/DEV/Self/Mirage/src/include -isystem C:/msys64/mingw64/include/SDL2 -std=gnu11 -o CMakeFiles\\main.dir\\src\\functions\\map\\map_noise.c.obj -c E:\\DEV\\Self\\Mirage\\src\\functions\\map\\map_noise.c",
+  "file": "E:\\DEV\\Self\\Mirage\\src\\functions\\map\\map_noise.c",
+  "output": "CMakeFiles\\main.dir\\src\\functions\\map\\map_noise.c.obj"
+},
+{
+  "directory": "E:/DEV/Self/Mirage/build",
+  "command": "C:\\msys64\\mingw64\\bin\\cc.exe -IE:/DEV/Self/Mirage/src/functions/character -IE:/DEV/Self/Mirage/src/functions/debug -IE:/DEV/Self/Mirage/src/functions/elements -IE:/DEV/Self/Mirage/src/functions/floor -IE:/DEV/Self/Mirage/src/functions/map -IE:/DEV/Self/Mirage/src/functions/ui -IE:/DEV/Self/Mirage/src/include -isystem C:/msys64/mingw64/include/SDL2 -std=gnu11 -o CMakeFiles\\main.dir\\src\\functions\\ui\\ui.c.obj -c E:\\DEV\\Self\\Mirage\\src\\functions\\ui\\ui.c",
+  "file": "E:\\DEV\\Self\\Mirage\\src\\functions\\ui\\ui.c",
+  "output": "CMakeFiles\\main.dir\\src\\functions\\ui\\ui.c.obj"
+},
+{
+  "directory": "E:/DEV/Self/Mirage/build",
+  "command": "C:\\msys64\\mingw64\\bin\\cc.exe -IE:/DEV/Self/Mirage/src/functions/character -IE:/DEV/Self/Mirage/src/functions/debug -IE:/DEV/Self/Mirage/src/functions/elements -IE:/DEV/Self/Mirage/src/functions/floor -IE:/DEV/Self/Mirage/src/functions/map -IE:/DEV/Self/Mirage/src/functions/ui -IE:/DEV/Self/Mirage/src/include -isystem C:/msys64/mingw64/include/SDL2 -std=gnu11 -o CMakeFiles\\main.dir\\src\\main.c.obj -c E:\\DEV\\Self\\Mirage\\src\\main.c",
+  "file": "E:\\DEV\\Self\\Mirage\\src\\main.c",
+  "output": "CMakeFiles\\main.dir\\src\\main.c.obj"
+}
+]
