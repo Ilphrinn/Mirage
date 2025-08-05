@@ -16,17 +16,17 @@
 #define MAP_PIXEL_WIDTH  ((int64_t)(MAP_WIDTH * TILE_SIZE))
 #define MAP_PIXEL_HEIGHT ((int64_t)(MAP_HEIGHT * TILE_SIZE))
 
-#define TILE_SIZE        32  // en pixels
-#define CHUNK_SIZE       64  // en tuiles (64x64)
+#define TILE_SIZE        32  // in pixels
+#define CHUNK_SIZE       64  // in tiles (64x64)
 #define CHUNK_BYTES      (CHUNK_SIZE * CHUNK_SIZE)
 #define CHUNK_CACHE_SIZE (LOAD_DIAMETER * LOAD_DIAMETER)
 
 #define TILE_MAX TILE_COUNT
 
-// --- Initialisation du cache ---
+// --- Cache initialization ---
 void map_init(void);
 
-// --- Accès à une tuile globale (coordonnée en cases, pas pixels) ---
+// --- Access to a global tile (coordinates in tiles, not pixels) ---
 TileID get_tile_at_cached(int global_x, int global_y);
 TileID get_tile_at(int global_x, int global_y);
 

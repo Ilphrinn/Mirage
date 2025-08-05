@@ -48,7 +48,7 @@ bool generate_chunk(TileID tiles[CHUNK_SIZE][CHUNK_SIZE], int chunk_x, int chunk
     if (base_x >= MAP_WIDTH || base_y >= MAP_HEIGHT)
         return false;
 
-    // Génération des tuiles du chunk avec le nouveau système de biome
+    // Generate chunk tiles with the new biome system
     for (int y = 0; y < CHUNK_SIZE; y++) {
         for (int x = 0; x < CHUNK_SIZE; x++) {
             int global_x = base_x + x;

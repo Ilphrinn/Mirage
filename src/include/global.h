@@ -10,9 +10,9 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
-extern bool debug_mode; // déclaration
+extern bool debug_mode; // declaration
 
-// === Modules du jeu ===
+// === Game modules ===
 #include "../functions/character/character.h"
 #include "../functions/floor/floor.h"
 

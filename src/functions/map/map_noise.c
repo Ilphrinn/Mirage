@@ -72,7 +72,7 @@ float noise2d(float x, float y) {
              grad(perm[B + 1], x - 1, y - 1), u),
         v);
 
-    return (res + 1.0f) * 0.5f; // normalisé [0,1]
+    return (res + 1.0f) * 0.5f; // normalized [0,1]
 }
 
 float fbm(float x, float y, int octaves, float persistence, float scale) {
@@ -111,7 +111,7 @@ BiomeType get_biome_from_sample(NoiseSample sample) {
     return BIOME_SNOW;
 }
 
-// --- Interface principale ---
+// --- Main interface ---
 float get_height(int x, int y) {
     return fbm((float)x / 50.0f, (float)y / 50.0f, 5, 0.5f, 0.01f);
 }
