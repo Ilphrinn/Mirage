@@ -51,7 +51,7 @@ void execute_debug_command(const char* cmd, Player* player) {
         if (sscanf(cmd + 3, "%d %d", &x, &y) == 2) {
             player->pos_x = x * TILE_SIZE;
             player->pos_y = y * TILE_SIZE;
-            debug_terminal_log("", x, y);
+            debug_terminal_log("    Teleportation a (%d %d)", x, y);
         } else {
             debug_terminal_log("    Syntaxe invalide : tp x y");
         }

@@ -6,12 +6,11 @@
 #include <string.h>
 #include <stdbool.h>
 
-extern bool debug_mode; // déclaration
-
 // === SDL ===
-#include <stdbool.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+
+extern bool debug_mode; // déclaration
 
 // === Modules du jeu ===
 #include "../functions/character/character.h"

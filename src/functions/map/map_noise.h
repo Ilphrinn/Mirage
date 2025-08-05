@@ -1,8 +1,7 @@
+// Noise generation helpers for map creation.
 #ifndef MAP_NOISE_H
 #define MAP_NOISE_H
 
-#include <stdbool.h>
-#include <SDL2/SDL.h>
 #include "../../include/structure.h"
 
 // Retourne une hauteur normalisée [0, 1] à une position (x, y)
@@ -22,3 +21,4 @@ float fbm(float x, float y, int octaves, float persistence, float scale);
 float noise2d(float x, float y);
 
 #endif
+
