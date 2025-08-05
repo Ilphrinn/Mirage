@@ -32,7 +32,7 @@ Player create_player(int x, int y, int size, int speed) {
 void move_player(Player* player, const Uint8* keystates) {
     float speed = player->speed;
 
-    // Calcul du centre pour la tuile sous le joueur
+    // Compute the center to determine the tile under the player
     int center_x = (int)(player->pos_x + player->rect.w / 2);
     int center_y = (int)(player->pos_y + player->rect.h / 2);
     int tile_x = center_x / TILE_SIZE;
@@ -43,7 +43,7 @@ void move_player(Player* player, const Uint8* keystates) {
         speed *= 0.8f;
     }
 
-    // Prochaines positions
+    // Next positions
     int64_t next_x = player->pos_x;
     int64_t next_y = player->pos_y;
 
@@ -53,16 +53,16 @@ void move_player(Player* player, const Uint8* keystates) {
     if (keystates[SDL_SCANCODE_UP])    { next_y -= speed; move_y = true; }
     if (keystates[SDL_SCANCODE_DOWN])  { next_y += speed; move_y = true; }
 
-    // Cas 1 : déplacement complet
+    // Case 1: full movement
     if (is_walkable(next_x, next_y, player->hitbox)) {
         player->pos_x = next_x;
         player->pos_y = next_y;
     }
-    // Cas 2 : seulement X
+    // Case 2: only X
     else if (move_x && is_walkable(next_x, player->pos_y, player->hitbox)) {
         player->pos_x = next_x;
     }
-    // Cas 3 : seulement Y
+    // Case 3: only Y
     else if (move_y && is_walkable(player->pos_x, next_y, player->hitbox)) {
         player->pos_y = next_y;
     }
@@ -77,7 +77,7 @@ void move_player(Player* player, const Uint8* keystates) {
         player->pos_y = MAP_PIXEL_HEIGHT - player->rect.h;
 
 
-    // Mise à jour du rectangle
+    // Update the rectangle
     player->rect.x = (int)player->pos_x;
     player->rect.y = (int)player->pos_y;
 }

@@ -5,7 +5,7 @@
 #include <SDL2/SDL.h>
 #include <stdint.h>
 
-// === Joueur ===
+// === Player ===
 typedef struct {
     SDL_Rect rect;
     SDL_Rect hitbox;
@@ -15,30 +15,30 @@ typedef struct {
     int64_t pos_y;
 } Player;
 
-// === Groupes de rendu ===
+// === Render groups ===
 typedef struct {
     SDL_Rect rects[2048];
     int count;
     SDL_Color color;
 } TileRenderGroup;
 
-// === Tuile avec poids pour choix pondéré ===
+// === Tile with weight for weighted selection ===
 typedef struct {
     int tile_id;
     float chance;
 } TileVariant;
 
-// === Échantillon de données de bruit ===
+// === Noise data sample ===
 typedef struct {
-    float x, y;  // nouvelles
+    float x, y;  // new
     float elevation;
     float humidity;
     float temperature;
 } NoiseSample;
 
-// === Types de tuiles ===
+// === Tile types ===
 typedef enum {
-    // --- Sols naturels ---
+    // --- Natural ground ---
     TILE_GRASS = 0,
     TILE_SAND,
     TILE_ROCK,
@@ -49,7 +49,7 @@ typedef enum {
     TILE_RICE_FIELD,
     TILE_BAMBOO_FLOOR,
 
-    // --- Végétation ---
+    // --- Vegetation ---
     TILE_TREE,
     TILE_PINE_TREE,
     TILE_BAMBOO,
@@ -58,7 +58,7 @@ typedef enum {
     TILE_FLOWER,
     TILE_MUSHROOM,
 
-    // --- Formations naturelles ---
+    // --- Natural formations ---
     TILE_MOUNTAIN,
     TILE_HILL,
     TILE_CLIFF,
@@ -67,7 +67,7 @@ typedef enum {
     TILE_RIVER,
     TILE_LAKE,
 
-    // --- Structures humaines ---
+    // --- Human structures ---
     TILE_WALL,
     TILE_PATH,
     TILE_FLOOR,
@@ -81,7 +81,7 @@ typedef enum {
     TILE_MARKET,
     TILE_GATE,
 
-    // --- Symboles/objets sacrés ---
+    // --- Sacred symbols/objects ---
     TILE_SHRINE,
     TILE_ALTAR,
     TILE_STATUE,
@@ -89,7 +89,7 @@ typedef enum {
     TILE_LANTERN,
     TILE_SPIRIT_TREE,
 
-    // --- Zones spéciales ---
+    // --- Special areas ---
     TILE_OASIS,
     TILE_LAVA,
     TILE_ICE,
@@ -97,7 +97,7 @@ typedef enum {
     TILE_CLOUD,
     TILE_VOID,
 
-    // --- Divers / techniques ---
+    // --- Miscellaneous / technical ---
     TILE_PORTAL,
     TILE_CHECKPOINT,
     TILE_SECRET_DOOR,
@@ -173,7 +173,7 @@ static SDL_Color tile_colors[TILE_COUNT] = {
     [TILE_UNKNOWN]      = { 60,  60,  60, 255 }
 };
 
-// === Types de biome ===
+// === Biome types ===
 typedef enum {
     BIOME_FOREST,
     BIOME_DESERT,

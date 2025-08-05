@@ -4,7 +4,7 @@ bool debug_mode = false;
 
 #define DEBUG_BUFFER_LINES 8
 
-static char debug_lines[DEBUG_BUFFER_LINES][128]; // 5 lignes max
+static char debug_lines[DEBUG_BUFFER_LINES][128]; // max 5 lines
 static int debug_line_count = 0;
 
 void debug_clear() {
@@ -13,7 +13,7 @@ void debug_clear() {
 
 void debug_terminal_log(const char* fmt, ...) {
     if (debug_line_count >= DEBUG_BUFFER_LINES) {
-        // décale les lignes (scroll)
+        // shift lines (scroll)
         for (int i = 1; i < DEBUG_BUFFER_LINES; i++) {
             strcpy(debug_lines[i - 1], debug_lines[i]);
         }
@@ -57,7 +57,7 @@ void execute_debug_command(const char* cmd, Player* player) {
         }
 
     } else if (strcmp(cmd, "clear") == 0) {
-        debug_clear(); // si tu utilises un buffer debug
+        debug_clear(); // if you use a debug buffer
         debug_terminal_log(" ");
 
     } else if (strcmp(cmd, "help") == 0) {

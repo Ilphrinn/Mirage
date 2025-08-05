@@ -1,6 +1,6 @@
 #include "../../include/global.h"
 
-// Définitions internes simples pour deux biomes
+// Simple internal definitions for two biomes
 static TileVariant desert_tiles[] = {
     { TILE_SAND, 0.7f },
     { TILE_ROCK, 0.2f },

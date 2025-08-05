@@ -4,16 +4,16 @@
 
 #include "../../include/structure.h"
 
-// Retourne une hauteur normalisée [0, 1] à une position (x, y)
+// Returns a normalized height [0, 1] at position (x, y)
 float get_height(int x, int y);
 
-// Donne les données bruitées utiles à la classification
+// Provides noise data useful for classification
 NoiseSample get_noise_sample(int x, int y);
 
-// Calcule le biome à partir des données bruitées combinées
+// Computes the biome from combined noise data
 BiomeType get_biome_from_sample(NoiseSample sample);
 
-// Retourne le biome associé à la position (x, y)
+// Returns the biome associated with position (x, y)
 BiomeType get_biome_at(int x, int y);
 
 float fbm(float x, float y, int octaves, float persistence, float scale);
