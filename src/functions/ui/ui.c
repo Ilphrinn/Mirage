@@ -71,8 +71,6 @@ void render_minimap(SDL_Renderer* renderer, float player_pos_x, float player_pos
                 if (dx < -RADIUS_TILES || dx > RADIUS_TILES || dy < -RADIUS_TILES || dy > RADIUS_TILES)
                     continue;
 
-                TileID tile = chunk_cache[i].tiles[y][x];
-
                 SDL_Rect rect = {
                     MARGIN_X + (dx + RADIUS_TILES) * TILE_PIXEL,
                     MARGIN_Y + (dy + RADIUS_TILES) * TILE_PIXEL,
@@ -80,7 +78,8 @@ void render_minimap(SDL_Renderer* renderer, float player_pos_x, float player_pos
                     TILE_PIXEL
                 };
 
-                set_tile_color(renderer ,tile);
+                BiomeType biome = get_biome_at(global_x, global_y);
+                set_biome_color(renderer, biome);
 
                 SDL_RenderFillRect(renderer, &rect);
             }
@@ -100,6 +99,11 @@ void render_minimap(SDL_Renderer* renderer, float player_pos_x, float player_pos
 
 void set_tile_color(SDL_Renderer* r, TileID tile) {
     SDL_Color c = tile_colors[tile < TILE_COUNT ? tile : TILE_UNKNOWN];
+    SDL_SetRenderDrawColor(r, c.r, c.g, c.b, c.a);
+}
+
+void set_biome_color(SDL_Renderer* r, BiomeType biome) {
+    SDL_Color c = biome_colors[biome < BIOME_COUNT ? biome : BIOME_UNKNOWN];
     SDL_SetRenderDrawColor(r, c.r, c.g, c.b, c.a);
 }
 

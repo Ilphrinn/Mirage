@@ -4,6 +4,8 @@
 
 #include "../../include/structure.h"
 
+#define BIOME_SIZE 200
+
 // Returns a normalized height [0, 1] at position (x, y)
 float get_height(int x, int y);
 

@@ -117,6 +117,10 @@ float get_height(int x, int y) {
 }
 
 BiomeType get_biome_at(int x, int y) {
-    NoiseSample sample = get_noise_sample(x, y);
+    int bx = x / BIOME_SIZE;
+    int by = y / BIOME_SIZE;
+    int sample_x = bx * BIOME_SIZE;
+    int sample_y = by * BIOME_SIZE;
+    NoiseSample sample = get_noise_sample(sample_x, sample_y);
     return get_biome_from_sample(sample);
 }
