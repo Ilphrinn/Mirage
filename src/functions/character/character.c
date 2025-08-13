@@ -12,7 +12,8 @@ static bool is_walkable(int64_t pos_x, int64_t pos_y, SDL_Rect hitbox) {
     TileID br = get_tile_at(right / TILE_SIZE, bottom / TILE_SIZE);
 
     return (tl != TILE_WALL && tr != TILE_WALL && bl != TILE_WALL && br != TILE_WALL &&
-            tl != TILE_MOUNTAIN && tr != TILE_MOUNTAIN && bl != TILE_MOUNTAIN && br != TILE_MOUNTAIN);
+            tl != TILE_MOUNTAIN && tr != TILE_MOUNTAIN && bl != TILE_MOUNTAIN && br != TILE_MOUNTAIN &&
+            tl != TILE_ROCK && tr != TILE_ROCK && bl != TILE_ROCK && br != TILE_ROCK);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

@@ -53,6 +53,7 @@ void render_minimap(SDL_Renderer* renderer, float player_pos_x, float player_pos
         (2 * RADIUS_TILES + 1) * TILE_PIXEL + 2
     };
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderFillRect(renderer, &bg);
     SDL_RenderDrawRect(renderer, &bg);
 
     for (int i = 0; i < CHUNK_CACHE_SIZE; i++) {
