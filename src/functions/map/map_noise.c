@@ -93,22 +93,20 @@ float fbm(float x, float y, int octaves, float persistence, float scale) {
 }
 
 NoiseSample get_noise_sample(int x, int y) {
+    float fx = (float)x + 0.5f;
+    float fy = (float)y + 0.5f;
+
     NoiseSample sample;
-    sample.x = (float)x;
-    sample.y = (float)y;
-    sample.elevation = fbm((float)x, (float)y, 5, 0.5f, 0.01f);
-    sample.humidity = noise2d(x * 0.05f, y * 0.05f);
-    sample.temperature = noise2d((x + 5000) * 0.05f, (y + 5000) * 0.05f);
+    sample.x = fx;
+    sample.y = fy;
+    sample.elevation = fbm(fx, fy, 5, 0.5f, 0.01f);
+    sample.humidity = noise2d(fx * 0.05f, fy * 0.05f);
+    sample.temperature = noise2d((fx + 5000) * 0.05f, (fy + 5000) * 0.05f);
     return sample;
 }
 
 BiomeType get_biome_from_sample(NoiseSample sample) {
-    float val = fbm(sample.x, sample.y, 5, 0.5f, 0.01f);
-
-    if (val < 0.25f) return BIOME_DESERT;
-    if (val < 0.5f)  return BIOME_PLAINS;
-    if (val < 0.75f) return BIOME_FOREST;
-    return BIOME_SNOW;
+    return get_biome_from_noise(sample.elevation, sample.humidity);
 }
 
 // --- Main interface ---
@@ -117,6 +115,10 @@ float get_height(int x, int y) {
 }
 
 BiomeType get_biome_at(int x, int y) {
-    NoiseSample sample = get_noise_sample(x, y);
+    int bx = x / BIOME_SIZE;
+    int by = y / BIOME_SIZE;
+    int sample_x = bx * BIOME_SIZE + BIOME_SIZE / 2;
+    int sample_y = by * BIOME_SIZE + BIOME_SIZE / 2;
+    NoiseSample sample = get_noise_sample(sample_x, sample_y);
     return get_biome_from_sample(sample);
 }

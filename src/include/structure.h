@@ -191,4 +191,23 @@ typedef enum {
     BIOME_UNKNOWN
 } BiomeType;
 
+#define BIOME_COUNT (BIOME_UNKNOWN + 1)
+
+static SDL_Color biome_colors[BIOME_COUNT] = {
+    [BIOME_FOREST]     = { 34, 139,  34, 255 },
+    [BIOME_DESERT]     = {237, 201, 175, 255 },
+    [BIOME_MOUNTAIN]   = {139, 137, 137, 255 },
+    [BIOME_WATER]      = { 30, 144, 255, 255 },
+    [BIOME_SNOW]       = {255, 250, 250, 255 },
+    [BIOME_PLAINS]     = {144, 238, 144, 255 },
+    [BIOME_SWAMP]      = { 47,  79,  79, 255 },
+    [BIOME_JUNGLE]     = {  0, 100,   0, 255 },
+    [BIOME_VOLCANIC]   = {178,  34,  34, 255 },
+    [BIOME_CLOUD]      = {245, 245, 245, 255 },
+    [BIOME_HEAVEN]     = {255, 255, 224, 255 },
+    [BIOME_UNDERWORLD] = {105,   0, 105, 255 },
+    [BIOME_SACRED]     = {186,  85, 211, 255 },
+    [BIOME_UNKNOWN]    = { 60,  60,  60, 255 }
+};
+
 #endif
