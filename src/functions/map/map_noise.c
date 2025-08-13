@@ -120,5 +120,6 @@ BiomeType get_biome_at(int x, int y) {
     int sample_x = bx * BIOME_SIZE + BIOME_SIZE / 2;
     int sample_y = by * BIOME_SIZE + BIOME_SIZE / 2;
     NoiseSample sample = get_noise_sample(sample_x, sample_y);
+    NoiseSample sample = get_noise_sample(sample_x, sample_y);
     return get_biome_from_sample(sample);
 }
