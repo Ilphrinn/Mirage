@@ -13,6 +13,25 @@ static TileVariant forest_tiles[] = {
     { TILE_ROCK, 0.1f }
 };
 
+static TileVariant plains_tiles[] = {
+    { TILE_GRASS, 0.8f },
+    { TILE_SOIL, 0.2f }
+};
+
+static TileVariant snow_tiles[] = {
+    { TILE_SNOW, 0.8f },
+    { TILE_ROCK, 0.2f }
+};
+
+static TileVariant mountain_tiles[] = {
+    { TILE_ROCK, 0.7f },
+    { TILE_SNOW, 0.3f }
+};
+
+static TileVariant water_tiles[] = {
+    { TILE_WATER, 1.0f }
+};
+
 TileVariant get_tile_variant_for_biome(BiomeType biome, int x, int y) {
     float r = noise2d(x * 0.2f, y * 0.2f);
     TileVariant* variants = NULL;
@@ -26,6 +45,22 @@ TileVariant get_tile_variant_for_biome(BiomeType biome, int x, int y) {
         case BIOME_FOREST:
             variants = forest_tiles;
             count = sizeof(forest_tiles) / sizeof(TileVariant);
+            break;
+        case BIOME_PLAINS:
+            variants = plains_tiles;
+            count = sizeof(plains_tiles) / sizeof(TileVariant);
+            break;
+        case BIOME_SNOW:
+            variants = snow_tiles;
+            count = sizeof(snow_tiles) / sizeof(TileVariant);
+            break;
+        case BIOME_MOUNTAIN:
+            variants = mountain_tiles;
+            count = sizeof(mountain_tiles) / sizeof(TileVariant);
+            break;
+        case BIOME_WATER:
+            variants = water_tiles;
+            count = sizeof(water_tiles) / sizeof(TileVariant);
             break;
         default:
             return (TileVariant){ TILE_GRASS, 1.0f };
