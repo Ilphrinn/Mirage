@@ -28,13 +28,13 @@ for (int y = start_y; y < end_y; ++y) {
 
 if (debug_mode) {
     SDL_SetRenderDrawColor(renderer, 90, 90, 90, 255);
-    for (int x = start_x; x <= end_x; ++x) {
-        int line_x = x * TILE_SIZE - camera.x;
-        SDL_RenderDrawLine(renderer, line_x, 0, line_x, camera.h);
+    for (int debug_x = start_x; debug_x <= end_x; ++debug_x) {
+        int debug_line_x = debug_x * TILE_SIZE - camera.x;
+        SDL_RenderDrawLine(renderer, debug_line_x, 0, debug_line_x, camera.h);
     }
-    for (int y = start_y; y <= end_y; ++y) {
-        int line_y = y * TILE_SIZE - camera.y;
-        SDL_RenderDrawLine(renderer, 0, line_y, camera.w, line_y);
+    for (int debug_y = start_y; debug_y <= end_y; ++debug_y) {
+        int debug_line_y = debug_y * TILE_SIZE - camera.y;
+        SDL_RenderDrawLine(renderer, 0, debug_line_y, camera.w, debug_line_y);
     }
 }
 
