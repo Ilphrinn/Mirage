@@ -79,13 +79,6 @@ build CMakeFiles/main.dir/src/functions/map/map.c.obj: C_COMPILER__main_unscanne
   OBJECT_DIR = CMakeFiles\main.dir
   OBJECT_FILE_DIR = CMakeFiles\main.dir\src\functions\map
 
-build CMakeFiles/main.dir/src/functions/map/map_noise.c.obj: C_COMPILER__main_unscanned_ E$:/DEV/Self/Mirage/src/functions/map/map_noise.c || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\src\functions\map\map_noise.c.obj.d
-  FLAGS = -std=gnu11
-  INCLUDES = -IE:/DEV/Self/Mirage/src/functions/character -IE:/DEV/Self/Mirage/src/functions/debug -IE:/DEV/Self/Mirage/src/functions/elements -IE:/DEV/Self/Mirage/src/functions/floor -IE:/DEV/Self/Mirage/src/functions/map -IE:/DEV/Self/Mirage/src/functions/ui -IE:/DEV/Self/Mirage/src/include -isystem C:/msys64/mingw64/include/SDL2
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir\src\functions\map
-
 build CMakeFiles/main.dir/src/functions/ui/ui.c.obj: C_COMPILER__main_unscanned_ E$:/DEV/Self/Mirage/src/functions/ui/ui.c || cmake_object_order_depends_target_main
   DEP_FILE = CMakeFiles\main.dir\src\functions\ui\ui.c.obj.d
   FLAGS = -std=gnu11
@@ -108,7 +101,7 @@ build CMakeFiles/main.dir/src/main.c.obj: C_COMPILER__main_unscanned_ E$:/DEV/Se
 #############################################
 # Link the executable main.exe
 
-build main.exe: C_EXECUTABLE_LINKER__main_ CMakeFiles/main.dir/src/functions/character/character.c.obj CMakeFiles/main.dir/src/functions/debug/debug.c.obj CMakeFiles/main.dir/src/functions/elements/elements.c.obj CMakeFiles/main.dir/src/functions/floor/floor.c.obj CMakeFiles/main.dir/src/functions/map/map.c.obj CMakeFiles/main.dir/src/functions/map/map_noise.c.obj CMakeFiles/main.dir/src/functions/ui/ui.c.obj CMakeFiles/main.dir/src/main.c.obj | C$:/msys64/mingw64/lib/libSDL2main.a C$:/msys64/mingw64/lib/libSDL2.dll.a
+build main.exe: C_EXECUTABLE_LINKER__main_ CMakeFiles/main.dir/src/functions/character/character.c.obj CMakeFiles/main.dir/src/functions/debug/debug.c.obj CMakeFiles/main.dir/src/functions/elements/elements.c.obj CMakeFiles/main.dir/src/functions/floor/floor.c.obj CMakeFiles/main.dir/src/functions/map/map.c.obj CMakeFiles/main.dir/src/functions/ui/ui.c.obj CMakeFiles/main.dir/src/main.c.obj | C$:/msys64/mingw64/lib/libSDL2main.a C$:/msys64/mingw64/lib/libSDL2.dll.a
   LINK_LIBRARIES = C:/msys64/mingw64/lib/libSDL2main.a  C:/msys64/mingw64/lib/libSDL2.dll.a  -lSDL2_ttf  -lshell32  -Wl,--undefined=WinMain  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\main.dir
   POST_BUILD = cd .

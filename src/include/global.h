@@ -19,7 +19,6 @@ extern bool debug_mode; // declaration
 #include "../functions/elements/elements.h"
 
 #include "../functions/map/map.h"
-#include "../functions/map/map_noise.h"
 
 #include "../functions/ui/ui.h"
 
