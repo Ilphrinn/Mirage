@@ -1,101 +1,96 @@
 #include "../../include/global.h"
 
-void render_fps(SDL_Renderer* renderer, TTF_Font* font, int fps) {
-    // Static variables to cache the texture
-    static int last_fps = -1;
-    static SDL_Texture* fpsTexture = NULL;
-    static char cachedText[32] = "";
-    SDL_Color white = {255, 255, 255, 255};
+void render_fps(SDL_Renderer* renderer, TTF_Font* font, int debug_fps) {
+    static int debug_last_fps = -1;
+    static SDL_Texture* debug_fps_texture = NULL;
+    static char debug_cached_text[32] = "";
+    SDL_Color debug_white = {255, 255, 255, 255};
 
-    // Update the texture only if the FPS has changed
-    if (fps != last_fps) {
-        last_fps = fps;
-        snprintf(cachedText, sizeof(cachedText), "FPS: %d", fps);
-        if (fpsTexture) {
-            SDL_DestroyTexture(fpsTexture);
-            fpsTexture = NULL;
+    if (debug_fps != debug_last_fps) {
+        debug_last_fps = debug_fps;
+        snprintf(debug_cached_text, sizeof(debug_cached_text), "FPS: %d", debug_fps);
+        if (debug_fps_texture) {
+            SDL_DestroyTexture(debug_fps_texture);
+            debug_fps_texture = NULL;
         }
-        SDL_Surface* surface = TTF_RenderUTF8_Blended(font, cachedText, white);
-        if (surface) {
-            fpsTexture = SDL_CreateTextureFromSurface(renderer, surface);
-            SDL_FreeSurface(surface);
+        SDL_Surface* debug_surface = TTF_RenderUTF8_Blended(font, debug_cached_text, debug_white);
+        if (debug_surface) {
+            debug_fps_texture = SDL_CreateTextureFromSurface(renderer, debug_surface);
+            SDL_FreeSurface(debug_surface);
         }
     }
 
-    // Render the texture if it is available
-    if (fpsTexture) {
-        SDL_Rect dst;
-        SDL_QueryTexture(fpsTexture, NULL, NULL, &dst.w, &dst.h);
-        int win_w, win_h;
-        SDL_GetRendererOutputSize(renderer, &win_w, &win_h);
-        dst.x = win_w - dst.w - 10; // margin of 10 pixels
-        dst.y = 10;
-        SDL_RenderCopy(renderer, fpsTexture, NULL, &dst);
+    if (debug_fps_texture) {
+        SDL_Rect debug_dst;
+        SDL_QueryTexture(debug_fps_texture, NULL, NULL, &debug_dst.w, &debug_dst.h);
+        int debug_win_w, debug_win_h;
+        SDL_GetRendererOutputSize(renderer, &debug_win_w, &debug_win_h);
+        debug_dst.x = debug_win_w - debug_dst.w - 10;
+        debug_dst.y = 10;
+        SDL_RenderCopy(renderer, debug_fps_texture, NULL, &debug_dst);
     }
-
 }
 
-void render_minimap(SDL_Renderer* renderer, float player_pos_x, float player_pos_y) {
-    const Chunk* chunk_cache = get_chunk_cache();
-    const int TILE_PIXEL = 2;
-    const int MARGIN_X = 10;
-    const int MARGIN_Y = 10;
-    const int RADIUS_TILES = 50;
+void render_minimap(SDL_Renderer* renderer, float debug_player_pos_x, float debug_player_pos_y) {
+    const Chunk* debug_chunk_cache = get_chunk_cache();
+    const int debug_tile_pixel = 2;
+    const int debug_margin_x = 10;
+    const int debug_margin_y = 10;
+    const int debug_radius_tiles = 50;
 
-    int center_tile_x = (int)(player_pos_x / TILE_SIZE);
-    int center_tile_y = (int)(player_pos_y / TILE_SIZE);
+    int debug_center_tile_x = (int)(debug_player_pos_x / TILE_SIZE);
+    int debug_center_tile_y = (int)(debug_player_pos_y / TILE_SIZE);
 
-    // black background with border
-    SDL_Rect bg = {
-        MARGIN_X - 1,
-        MARGIN_Y - 1,
-        (2 * RADIUS_TILES + 1) * TILE_PIXEL + 2,
-        (2 * RADIUS_TILES + 1) * TILE_PIXEL + 2
+    SDL_Rect debug_bg = {
+        debug_margin_x - 1,
+        debug_margin_y - 1,
+        (2 * debug_radius_tiles + 1) * debug_tile_pixel + 2,
+        (2 * debug_radius_tiles + 1) * debug_tile_pixel + 2
     };
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    SDL_RenderFillRect(renderer, &bg);
-    SDL_RenderDrawRect(renderer, &bg);
+    SDL_RenderFillRect(renderer, &debug_bg);
+    SDL_RenderDrawRect(renderer, &debug_bg);
 
-    for (int i = 0; i < CHUNK_CACHE_SIZE; i++) {
-        if (!chunk_cache[i].loaded) continue;
+    for (int debug_i = 0; debug_i < CHUNK_CACHE_SIZE; debug_i++) {
+        if (!debug_chunk_cache[debug_i].loaded) continue;
 
-        for (int y = 0; y < CHUNK_SIZE; y++) {
-            for (int x = 0; x < CHUNK_SIZE; x++) {
-                int global_x = chunk_cache[i].chunk_x * CHUNK_SIZE + x;
-                int global_y = chunk_cache[i].chunk_y * CHUNK_SIZE + y;
+        for (int debug_y = 0; debug_y < CHUNK_SIZE; debug_y++) {
+            for (int debug_x = 0; debug_x < CHUNK_SIZE; debug_x++) {
+                int global_x = debug_chunk_cache[debug_i].chunk_x * CHUNK_SIZE + debug_x;
+                int global_y = debug_chunk_cache[debug_i].chunk_y * CHUNK_SIZE + debug_y;
 
                 if (global_x < 0 || global_y < 0 || global_x >= MAP_WIDTH || global_y >= MAP_HEIGHT)
                     continue;
 
-                int dx = global_x - center_tile_x;
-                int dy = global_y - center_tile_y;
-                if (dx < -RADIUS_TILES || dx > RADIUS_TILES || dy < -RADIUS_TILES || dy > RADIUS_TILES)
+                int debug_dx = global_x - debug_center_tile_x;
+                int debug_dy = global_y - debug_center_tile_y;
+                if (debug_dx < -debug_radius_tiles || debug_dx > debug_radius_tiles ||
+                    debug_dy < -debug_radius_tiles || debug_dy > debug_radius_tiles)
                     continue;
 
-                SDL_Rect rect = {
-                    MARGIN_X + (dx + RADIUS_TILES) * TILE_PIXEL,
-                    MARGIN_Y + (dy + RADIUS_TILES) * TILE_PIXEL,
-                    TILE_PIXEL,
-                    TILE_PIXEL
+                SDL_Rect debug_rect = {
+                    debug_margin_x + (debug_dx + debug_radius_tiles) * debug_tile_pixel,
+                    debug_margin_y + (debug_dy + debug_radius_tiles) * debug_tile_pixel,
+                    debug_tile_pixel,
+                    debug_tile_pixel
                 };
 
-                BiomeType biome = get_biome_at(global_x, global_y);
-                set_biome_color(renderer, biome);
+                BiomeType debug_biome = get_biome_at(global_x, global_y);
+                set_biome_color(renderer, debug_biome);
 
-                SDL_RenderFillRect(renderer, &rect);
+                SDL_RenderFillRect(renderer, &debug_rect);
             }
         }
     }
 
-    // Player marker at the center
-    SDL_Rect marker = {
-        MARGIN_X + RADIUS_TILES * TILE_PIXEL,
-        MARGIN_Y + RADIUS_TILES * TILE_PIXEL,
-        TILE_PIXEL,
-        TILE_PIXEL
+    SDL_Rect debug_marker = {
+        debug_margin_x + debug_radius_tiles * debug_tile_pixel,
+        debug_margin_y + debug_radius_tiles * debug_tile_pixel,
+        debug_tile_pixel,
+        debug_tile_pixel
     };
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-    SDL_RenderFillRect(renderer, &marker);
+    SDL_RenderFillRect(renderer, &debug_marker);
 }
 
 void set_tile_color(SDL_Renderer* r, TileID tile) {
@@ -112,35 +107,34 @@ extern int debug_terminal_mode;
 extern char debug_input[128];
 extern int debug_input_len;
 
-void render_debug_terminal(SDL_Renderer* renderer, TTF_Font* font, int w, int h, int cam_x, int cam_y) {
-    SDL_Rect rect = {0, h - h / 4, w / 2, h / 4};
+void render_debug_terminal(SDL_Renderer* renderer, TTF_Font* font, int debug_w, int debug_h, int debug_cam_x, int debug_cam_y) {
+    SDL_Rect debug_rect = {0, debug_h - debug_h / 4, debug_w / 2, debug_h / 4};
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 220);
-    SDL_RenderFillRect(renderer, &rect);
+    SDL_RenderFillRect(renderer, &debug_rect);
 
-    SDL_Rect log_rect = rect;
-    log_rect.h -= 30;  // Leave room for input
-    debug_render_in_rect(renderer, font, log_rect);
+    SDL_Rect debug_log_rect = debug_rect;
+    debug_log_rect.h -= 30;
+    debug_render_in_rect(renderer, font, debug_log_rect);
 
-    SDL_Color color = {255, 255, 255, 255};
-    char buffer[256];
+    SDL_Color debug_color = {255, 255, 255, 255};
+    char debug_buffer[256];
 
     if (debug_terminal_mode) {
-        snprintf(buffer, sizeof(buffer), "> %s", debug_input);
+        snprintf(debug_buffer, sizeof(debug_buffer), "> %s", debug_input);
     } else {
-        snprintf(buffer, sizeof(buffer), "Pos: (%d,%d)  Chunks: %d", cam_x, cam_y, get_chunk_count());
+        snprintf(debug_buffer, sizeof(debug_buffer), "Pos: (%d,%d)  Chunks: %d", debug_cam_x, debug_cam_y, get_chunk_count());
     }
 
-
-    SDL_Surface* surf = TTF_RenderUTF8_Blended(font, buffer, color);
-    SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer, surf);
-    SDL_Rect text_rect = {
-        rect.x + 10,
-        rect.y + rect.h - surf->h - 5,
-        surf->w,
-        surf->h
+    SDL_Surface* debug_surf = TTF_RenderUTF8_Blended(font, debug_buffer, debug_color);
+    SDL_Texture* debug_tex = SDL_CreateTextureFromSurface(renderer, debug_surf);
+    SDL_Rect debug_text_rect = {
+        debug_rect.x + 10,
+        debug_rect.y + debug_rect.h - debug_surf->h - 5,
+        debug_surf->w,
+        debug_surf->h
     };
 
-    SDL_RenderCopy(renderer, tex, NULL, &text_rect);
-    SDL_FreeSurface(surf);
-    SDL_DestroyTexture(tex);
+    SDL_RenderCopy(renderer, debug_tex, NULL, &debug_text_rect);
+    SDL_FreeSurface(debug_surf);
+    SDL_DestroyTexture(debug_tex);
 }

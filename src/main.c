@@ -79,9 +79,9 @@ if (debug_mode) {
 }
 
     // FPS variables
-    int frame_count = 0;
-    Uint32 last_time = SDL_GetTicks();
-    int fps = 0;
+    int debug_frame_count = 0;
+    Uint32 debug_last_time = SDL_GetTicks();
+    int debug_fps = 0;
     SDL_Event event;
     bool running = true;
 
@@ -160,16 +160,16 @@ if (debug_mode) {
         render_player(renderer, &player, &camera);
 
         // FPS calculation
-        frame_count++;
-        Uint32 current_time = SDL_GetTicks();
-        if (current_time - last_time >= 1000) {
-            fps = frame_count;
-            frame_count = 0;
-            last_time = current_time;
+        debug_frame_count++;
+        Uint32 debug_current_time = SDL_GetTicks();
+        if (debug_current_time - debug_last_time >= 1000) {
+            debug_fps = debug_frame_count;
+            debug_frame_count = 0;
+            debug_last_time = debug_current_time;
         }
 
 if (debug_mode) {
-    render_fps(renderer, font, fps);
+    render_fps(renderer, font, debug_fps);
     render_minimap(renderer, player.pos_x, player.pos_y);
     render_debug_terminal(renderer, font, screen_width, screen_height, camera.x, camera.y);
 }
